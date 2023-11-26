@@ -1,0 +1,26 @@
+.planta-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .planta-imagen-container {
+    margin-bottom: 16px;
+  }
+  
+  .planta-imagen {
+    width: 100%;
+    display: block; /* Asegúrate de que la imagen no tenga espacio extra alrededor */
+    height: auto; /* Esto mantendrá la proporción de la imagen */
+  }
+  
+  .planta-info > div {
+    margin-bottom: 8px;
+  }
+  
+  .planta-info span {
+    font-weight: bold;
+  }
+
+  
