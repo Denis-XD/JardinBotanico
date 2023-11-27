@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Upload } from "antd";
+import { Form, Input, Button, Upload, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import './Agregar.css';
 
@@ -7,59 +7,53 @@ const Agregar = () => {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
 
-  // Esta función se ejecutará cuando el usuario seleccione un archivo
+  const validarTipoImagen = (file) => {
+    const esImagen = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg';
+    if (!esImagen) {
+      message.error('Solo puedes subir archivos de imagen JPG/PNG!');
+    }
+    return esImagen && Promise.resolve();
+  };
+
+  const customRequest = ({ onProgress, onSuccess, onError, file }) => {
+    // Simplemente llama a onSuccess para evitar hacer una solicitud POST inmediata
+    setTimeout(() => onSuccess("ok"), 0);
+  };
+  
   const onFileChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
-  const onFormSubmit = (values) => {
-    // Si hay archivos seleccionados, toma el primer archivo de la lista
-    const file = fileList.length ? fileList[0].originFileObj : null;
+  const onFormSubmit = async (values) => {
+    // Si no hay archivos seleccionados o el archivo no es una imagen, no proceder
+    if (!fileList.length || !validarTipoImagen(fileList[0].originFileObj)) {
+      message.error('Por favor, selecciona una imagen válida (JPG/PNG) para subir.');
+      return;
+    }
 
-    console.log("Received values of form:", values);
-    console.log("Selected file:", file);
-
-    // Crea un FormData para enviarlo como multipart/form-data
     const formData = new FormData();
     formData.append("nombre", values.nombre);
     formData.append("nombreCientifico", values.nombreCientifico);
     formData.append("beneficios", values.beneficios);
     formData.append("descripcion", values.descripcion);
-    if (file) {
-      formData.append("imagen", file);
+    formData.append("imagen", fileList[0].originFileObj);
+    console.log(formData);
+    try {
+      const response = await fetch('http://localhost:3001/api/plantas/agregar', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        message.success("Planta agregada con éxito");
+        form.resetFields();
+        setFileList([]);
+      } else {
+        message.error("Hubo un error al agregar la planta");
+      }
+    } catch (error) {
+      message.error('Error al conectarse con el servidor: ' + error.message);
     }
-
-    // Aquí deberías tener la lógica para enviar el FormData al servidor
-    // Por ejemplo:
-    // fetch('tu-endpoint-de-carga', {
-    //   method: 'POST',
-    //   body: formData,
-    // })
-    // .then(...)
-    // .catch(...);
-  };
-
-  // Este es un ejemplo de cómo manejar la subida de archivos (esto debe adaptarse a tu backend)
-  const onUpload = (options) => {
-    const { onSuccess, onError, file, onProgress } = options;
-
-    // Ejemplo de cómo podrías manejar la carga del archivo
-    // Deberías reemplazar esto con tu lógica de carga real
-    const formData = new FormData();
-    formData.append("file", file);
-
-    fetch("tu-endpoint-de-carga", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        onSuccess(data);
-      })
-      .catch(onError);
-
-    // Simula el progreso de carga
-    setTimeout(() => onProgress({ percent: 50 }), 500);
   };
 
   return (
@@ -106,9 +100,9 @@ const Agregar = () => {
             getValueFromEvent={onFileChange}
           >
             <Upload
-              beforeUpload={() => false}
+              beforeUpload={validarTipoImagen}
               onChange={onFileChange}
-              customRequest={onUpload}
+              customRequest={customRequest}
               listType="picture"
               maxCount={1}
             >
@@ -125,4 +119,5 @@ const Agregar = () => {
     </div>
   );
 };
+
 export default Agregar;

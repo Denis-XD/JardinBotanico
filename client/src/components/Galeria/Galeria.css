@@ -1,0 +1,24 @@
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas que se ajustan al tamaño */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Espaciado alrededor del contenedor de la galería */
+}
+h2{
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 600px) {
+     h2{
+        font-size: 25px;
+        text-align: center;
+        padding: 5px;
+     }
+     .galeria-container {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        gap: 15px; /* Espacio reducido entre tarjetas */
+        padding: 10px; /* Menor padding alrededor del contenedor */
+    }
+}

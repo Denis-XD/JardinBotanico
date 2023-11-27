@@ -1,4 +1,5 @@
 import React from 'react';
+import './Planta.css';
 
 const Planta = ({ imagen, nombre, nombreCientifico, beneficios, descripcion }) => {
   return (
@@ -8,16 +9,20 @@ const Planta = ({ imagen, nombre, nombreCientifico, beneficios, descripcion }) =
       </div>
       <div className="planta-info">
         <div className="planta-nombre">
-          <span>Nombre: </span><h3>{nombre}</h3>
+          <strong>Nombre: </strong>
+          <p>{nombre}</p>
         </div>
         <div className="planta-nombre-cientifico">
-          <span>Nombre científico: </span><h4>{nombreCientifico}</h4>
+          <strong>Nombre científico: </strong>
+          <p>{nombreCientifico}</p>
         </div>
         <div className="planta-beneficios">
-          <span>Beneficios: </span><p>{beneficios}</p>
+          <strong>Beneficios: </strong>
+          <p>{beneficios}</p>
         </div>
         <div className="planta-descripcion">
-          <span>Descripción: </span><p>{descripcion}</p>
+          <strong>Descripción: </strong>
+          <p>{descripcion}</p>
         </div>
       </div>
     </div>
