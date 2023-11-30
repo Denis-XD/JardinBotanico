@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu } from 'antd';
+import './Navbar.css';
 
 const Navbar = ({ isAdmin, onLogout }) => {
   const navigate = useNavigate();
   
   const handleLogout = () => {
-    // Aquí iría la lógica para manejar el cierre de sesión.
-    onLogout(); // Suponiendo que esta función actualizará el estado de autenticación en tu contexto o Redux store.
-    navigate('/'); // Redirige al usuario a la página de inicio después de cerrar sesión.
+    onLogout(); 
+    navigate('/'); 
   };
 
   const adminMenuItems = [
@@ -51,7 +51,7 @@ const Navbar = ({ isAdmin, onLogout }) => {
       label: (<Link to="../Ubicacion/ubicacion" data-testid="nav-ubicacion">Ubicación</Link>),
       key: 'ubicacion',
     },
-    // Considera incluir una condición para cambiar el texto si el usuario está logueado
+   
     {
       label: (<Link to="/Login/login" data-testid="nav-login">{isAdmin ? 'Dashboard' : 'Login'}</Link>),
       key: 'login',
@@ -61,7 +61,7 @@ const Navbar = ({ isAdmin, onLogout }) => {
   const menuItems = isAdmin ? adminMenuItems : defaultMenuItems;
 
   return (
-    <Menu mode="horizontal" items={menuItems} />
+    <Menu mode="horizontal" items={menuItems} className="custom-navbar" />
   );
 };
 

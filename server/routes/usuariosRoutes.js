@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken'); // Asegúrate de haber instalado el paquete jsonwebtoken
+const jwt = require('jsonwebtoken');
 const knex = require('knex')(require('../knexfile').development);
 const router = express.Router();
 
@@ -11,23 +11,6 @@ router.get('/all', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error al obtener los usuarios' });
-  }
-});
-
-// Registrarse
-router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    // Encriptar la contraseña antes de guardarla en la base de datos
-    const hashedPassword = await bcrypt.hash(password, 10);
-    // Guardar el usuario en la base de datos
-    const userId = await knex('usuarios').insert({
-      username,
-      password: hashedPassword
-    });
-    res.json({ userId });
-  } catch (error) {
-    res.status(500).json({ error: 'Error al registrar el usuario' });
   }
 });
 

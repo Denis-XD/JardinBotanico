@@ -18,7 +18,6 @@ const Galeria = () => {
         const data = await response.json();
         setPlantas(data);
       } catch (error) {
-        console.error('Error al cargar plantas:', error);
         message.error('Error al cargar las plantas');
       }
       setCargando(false);

@@ -16,7 +16,6 @@ const Agregar = () => {
   };
 
   const customRequest = ({ onProgress, onSuccess, onError, file }) => {
-    // Simplemente llama a onSuccess para evitar hacer una solicitud POST inmediata
     setTimeout(() => onSuccess("ok"), 0);
   };
   
@@ -25,7 +24,6 @@ const Agregar = () => {
   };
 
   const onFormSubmit = async (values) => {
-    // Si no hay archivos seleccionados o el archivo no es una imagen, no proceder
     if (!fileList.length || !validarTipoImagen(fileList[0].originFileObj)) {
       message.error('Por favor, selecciona una imagen válida (JPG/PNG) para subir.');
       return;

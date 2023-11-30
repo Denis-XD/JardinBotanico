@@ -1,0 +1,35 @@
+.custom-navbar {
+    background-color: #35B09E;
+    border-bottom: 2px solid #666;
+    font-weight: bold;
+  }
+  
+  .custom-navbar .ant-menu-item a {
+    color: white; 
+    font-size: 16px;
+  }
+  
+  .custom-navbar .ant-menu-item a:hover {
+    color: #A7B09E;
+ 
+    
+  }
+  
+  .custom-navbar .ant-menu-item-active a,
+  .custom-navbar .ant-menu-item-selected a {
+    color: black;
+  }
+  
+  .custom-navbar .ant-menu-item button {
+    color: white;
+    background: none; 
+    border: none; 
+    padding: 0; 
+    margin: 0; 
+    font-size: 16px;
+  }
+  
+  .custom-navbar .ant-menu-item button:hover {
+    color: #ddd;
+  }
+  
