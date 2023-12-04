@@ -1,0 +1,37 @@
+.invernadero-container {
+    display: flex;
+    border: 2px solid red;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+    overflow: hidden; /* Ocultar contenido fuera del borde redondeado */
+  }
+  
+  .imagen {
+    width: 50%;
+  }
+  
+  .imagen img {
+    width: 100%;
+    height: auto;
+    transition: opacity 1s ease;
+  }
+  
+  .texto {
+    font-size: 28px;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+  }
+  
+  @media (max-width: 768px) {
+    .invernadero-container {
+      flex-direction: column;
+    }
+    .imagen, .texto {
+      width: 100%;
+    }
+    .texto{
+      font-size: 18px;
+    }
+  }
+  

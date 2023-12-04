@@ -1,80 +1,101 @@
-ul,
-li {
-  list-style: none;
-  white-space: nowrap;
-}
-
-li {
-  display: inline;
-}
-
-img {
-  margin-top: -16px;
-}
-
-/* Main container */
-
-.main-container {
-  width: 500px;
-  height: 280px;
-  margin: 0 auto;
-}
-
-/* Slider container */
-.slider-container {
+/* Estilo base para el carrusel */
+.historia-slider-container {
   position: relative;
-  height: 100%
+  max-width: 600px; /* Ancho máximo del carrusel */
+  margin: 2rem auto; /* Espacio arriba y abajo */
+  overflow: hidden; /* Ocultar desbordamiento */
 }
 
-/* dots carrusel */
-.dots-container {
-  display: flex;
-  justify-content: center;
+/* Lista de imágenes */
+.historia-slider-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Alinear horizontalmente */
+  transition: transform 0.5s ease; /* Suavizar la transición */
 }
 
-.dot-container-item {
-  margin: 8px 3px;
-  cursor: pointer;
-  font-size: 12px;
-  text-align: center;
+/* Botones del carrusel */
+.historia-slider-container button {
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Eliminar borde */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cursor en forma de mano al pasar por encima */
+  outline: none; /* Eliminar contorno al hacer clic */
+  position: absolute; /* Posicionamiento absoluto */
+  top: 50%; /* Centrar verticalmente */
+  transform: translateY(-50%); /* Ajustar centrado vertical */
+  font-size: 20px; /* Tamaño del texto */
+  border-radius: 50%; /* Bordes redondeados */
+  z-index: 100; /* Asegurarse de que esté por encima de otras capas */
 }
 
-/* Arrows */
-.leftArrow {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: 32px;
-  font-size: 50px;
-  font-weight: 700;
-  color: #fff;
-  z-index: 1;
-  cursor: pointer;
+/* Botón para deslizar a la izquierda */
+.historia-slider-container button.prev {
+  left: 10px; /* Posicionamiento a la izquierda */
 }
 
-.rightArrow {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 32px;
-  font-size: 50px;
-  font-weight: 700;
-  color: #fff;
-  z-index: 1;
-  cursor: pointer;
+/* Botón para deslizar a la derecha */
+.historia-slider-container button.next {
+  right: 10px; /* Posicionamiento a la derecha */
 }
 
-.container-images {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  border: 1px solid #eee;
-  overflow: hidden;
+/* Efecto al pasar el ratón por encima */
+.historia-slider-container button:hover {
+  background-color: #0056b3; /* Color de fondo más oscuro */
 }
 
-div.active {
-  background: #ccc;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
+/* Efecto al hacer clic */
+.historia-slider-container button:active {
+  background-color: #004080; /* Color de fondo aún más oscuro */
+}
+
+/* Estilo para las imágenes dentro del carrusel */
+.historia-slider-container img {
+  width: 100%; /* Hace que la imagen sea responsiva al ancho de li */
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+  object-fit: contain; /* Ajusta la imagen para que se vea completa sin recortar */
+  max-height: 320px; /* Altura máxima para todas las imágenes */
+}
+
+/* Estilo para cada elemento 'li' */
+.historia-slider-container li {
+  display: flex; /* Utiliza flexbox para centrar la imagen verticalmente */
+  align-items: center; /* Centra la imagen verticalmente */
+  justify-content: center; /* Centra la imagen horizontalmente */
+  min-width: 100%; /* Cada li será tan ancho como el carrusel */
+  max-height: 320px; /* Altura máxima para el contenedor de la imagen */
+}
+
+
+/* Estilos por defecto */
+.historia-typography .ant-typography-title {
+  font-size: 2rem; /* Tamaño grande por defecto */
+}
+
+.historia-typography .ant-typography-paragraph {
+  font-size: 1.25rem; /* Tamaño grande por defecto */
+}
+
+/* Estilos responsivos para pantallas medianas */
+@media (max-width: 768px) {
+  .historia-typography .ant-typography-title {
+    font-size: 1.5rem; /* Tamaño más pequeño para pantallas medianas */
+  }
+
+  .historia-typography .ant-typography-paragraph {
+    font-size: 1rem; /* Tamaño más pequeño para párrafos en pantallas medianas */
+  }
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 480px) {
+  .historia-typography .ant-typography-title {
+    font-size: 1.25rem; /* Tamaño aún más pequeño para pantallas pequeñas */
+  }
+
+  .historia-typography .ant-typography-paragraph {
+    font-size: 0.875rem; /* Tamaño aún más pequeño para párrafos en pantallas pequeñas */
+  }
 }
