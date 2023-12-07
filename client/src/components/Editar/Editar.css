@@ -1,0 +1,51 @@
+/* Editar.css */
+.editar-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.carousel-with-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.carousel-container {
+  width: auto;
+  max-width: 600px;
+  margin: 0 10px;
+}
+
+/* Estilos específicos para los botones de navegación en Editar */
+.editar-nav-btn {
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #35B09E;
+  border: 2px solid #35B09E;
+  color: white; 
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .carousel-with-buttons {
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .editar-nav-btn {
+    margin: 5px auto;
+    
+  }
+}

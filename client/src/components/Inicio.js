@@ -7,12 +7,12 @@ const Inicio = () => {
     "/image/img-portada1.jpg",
     "/image/img-portada2.jpg",
     "/image/img-portada3.jpg",
-  ]; // Reemplaza con las rutas de tus imágenes
+  ]; 
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((currentImageIndex + 1) % images.length);
-    }, 3000); // Cambia la imagen cada 3 segundos
+    }, 3000); 
 
     return () => clearInterval(intervalId);
   }, [currentImageIndex, images.length]);

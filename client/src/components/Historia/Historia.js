@@ -28,18 +28,18 @@ export const Historia = () => {
     padding: '1rem',
     borderRadius: '10px',
     textAlign: 'center', 
-    backgroundColor: '#808080'
+    backgroundColor: '#f0f0f0'
   };
   
   const titleStyle = {
     fontSize: windowWidth < 768 ? '1.5rem' : windowWidth < 480 ? '1.25rem' : '2rem',
-    marginBottom: '1rem' // Espaciado debajo del título
+    marginBottom: '1rem' 
   };
   
   const paragraphStyle = {
     fontSize: windowWidth < 768 ? '1rem' : windowWidth < 480 ? '0.875rem' : '1.25rem',
-    textAlign: 'justify', // Justificar el texto del párrafo
-    marginBottom: '1rem' // Espaciado entre párrafos
+    textAlign: 'justify', 
+    marginBottom: '1rem' 
   };
 
   const nextSlide = () => {
