@@ -35,7 +35,18 @@ const PlantaEditar = ({
   };
 
   const handleSubmit = async () => {
-    onSave(id_planta, datosPlanta);
+   
+    const formData = new FormData();
+    formData.append('nombre', datosPlanta.nombre);
+    formData.append('nombreCientifico', datosPlanta.nombreCientifico);
+    formData.append('beneficios', datosPlanta.beneficios);
+    formData.append('descripcion', datosPlanta.descripcion);
+  
+    if (fileList.length > 0) {
+      formData.append('imagen', fileList[0].originFileObj);
+    }
+    
+    onSave(id_planta, formData);
   };
 
   const handleDelete = async () => {
@@ -57,15 +68,19 @@ const PlantaEditar = ({
   };
 
   const validarTipoImagen = (file) => {
-    const esImagen = file.type === "image/jpeg" || file.type === "image/png";
+    const esImagen = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg';
     if (!esImagen) {
-      message.error("Solo puedes subir archivos de imagen JPG/PNG!");
+      message.error('Solo puedes subir archivos de imagen JPG/JPEG/PNG!');
     }
-    return esImagen ? Promise.resolve() : Promise.reject();
+    return esImagen && Promise.resolve();
   };
 
-  const onFileChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
+  const onFileChange = (info) => {
+    if (info.file.status === 'done') {
+      setFileList(info.fileList);
+    } else if (info.file.status === 'removed') {
+      setFileList([]);
+    }
   };
 
   const customRequest = ({ file, onSuccess }) => {
@@ -109,7 +124,7 @@ const PlantaEditar = ({
           />
         </Form.Item>
         <Form.Item label="Beneficios">
-          <Input
+          <Input.TextArea
             name="beneficios"
             value={datosPlanta.beneficios}
             onChange={handleChange}

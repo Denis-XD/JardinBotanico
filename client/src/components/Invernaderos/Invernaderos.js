@@ -6,20 +6,20 @@ const Invernaderos = () => {
 
   const invernaderoDatos = [
     {
-      imagenes: ['/image/img-portada1.jpg', '/image/img-portada2.jpg'],
-      texto: "Texto para el primer invernadero 1"
+      imagenes: ['/image/img-inv1-1.jpeg', '/image/img-inv1-2.jpeg'],
+      texto: "Invernadero 1  \nAqui se alojan plantas de la familia \nCactaceae."
     },
     {
-      imagenes: ['/image/img-portada1.jpg', '/image/img-portada2.jpg'],
-      texto: "Texto para el segundo invernadero 2"
+      imagenes: ['/image/img-inv2-1.jpeg', '/image/img-inv2-2.jpeg'],
+      texto: "Invernadero 2  \nAqui se alojan plantas Tropicales."
     },
     {
-      imagenes: ['/image/img-portada1.jpg', '/image/img-portada2.jpg'],
-      texto: "Texto para el tercer invernadero 3"
+      imagenes: ['/image/img-inv3-1.jpeg', '/image/img-inv3-2.jpeg'],
+      texto: "Invernadero 3  \nAqui se alojan plantas de la familia \nPalmetum."
     },
     {
-      imagenes: ['/image/img-portada1.jpg', '/image/img-portada2.jpg'],
-      texto: "Texto para el cuarto invernadero 4 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaae"
+      imagenes: ['/image/img-inv4-1.jpeg'],
+      texto: "Invernadero 4  \nAqui se alojan plantas hornamentales."
     },
   ];
 
@@ -27,7 +27,7 @@ const Invernaderos = () => {
     <div className="invernaderos-container">
       <h2>Invernaderos</h2>
       {invernaderoDatos.map((invernadero, index) => (
-        <Invernadero key={index} imagenes={invernadero.imagenes} texto={invernadero.texto} />
+         <Invernadero key={index} imagenes={invernadero.imagenes} texto={invernadero.texto}  index={index} data-testid={`invernadero-${index}`} />
       ))}
     </div>
   );

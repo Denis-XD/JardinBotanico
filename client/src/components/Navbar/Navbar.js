@@ -17,10 +17,6 @@ const Navbar = ({ isAdmin, onLogout }) => {
       key: 'agregar',
     },
     {
-      label: (<Link to="/Eliminar/eliminar" data-testid="nav-eliminar">Eliminar</Link>),
-      key: 'eliminar',
-    },
-    {
       label: (<Link to="/Editar/editar" data-testid="nav-editar">Editar</Link>),
       key: 'editar',
     },
@@ -51,7 +47,6 @@ const Navbar = ({ isAdmin, onLogout }) => {
       label: (<Link to="../Ubicacion/ubicacion" data-testid="nav-ubicacion">Ubicación</Link>),
       key: 'ubicacion',
     },
-   
     {
       label: (<Link to="/Login/login" data-testid="nav-login">{isAdmin ? 'Dashboard' : 'Login'}</Link>),
       key: 'login',

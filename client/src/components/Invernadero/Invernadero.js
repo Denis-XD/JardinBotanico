@@ -7,7 +7,7 @@ const Invernadero = ({ imagenes, texto }) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setImagenActual((prevImagenActual) => (prevImagenActual + 1) % imagenes.length);
-    }, 3000); 
+    }, 4000); 
 
     return () => clearInterval(intervalId);
   }, [imagenes.length]);

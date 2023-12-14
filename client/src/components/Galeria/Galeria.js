@@ -31,7 +31,7 @@ const Galeria = () => {
       <h2>Galería de Plantas</h2>
       {cargando ? (
         <Spin size="large" />
-      ) : (
+      ) : plantas.length > 0 ? (
         <div className="galeria-container">
           {plantas.map(planta => (
             <Card key={planta.id_planta} title={planta.nombre_planta} bordered={false}>
@@ -45,6 +45,8 @@ const Galeria = () => {
             </Card>
           ))}
         </div>
+      ) : (
+        <div className="galeria-vacia">Galería vacía</div> 
       )}
     </div>
   );

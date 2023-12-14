@@ -1,4 +1,3 @@
-/* Editar.css */
 .editar-container {
   display: flex;
   justify-content: center;
@@ -15,9 +14,9 @@
   width: auto;
   max-width: 600px;
   margin: 0 10px;
+  background-color: #CEE6F3;
 }
 
-/* Estilos específicos para los botones de navegación en Editar */
 .editar-nav-btn {
   border-radius: 50%;
   padding: 10px;
@@ -33,6 +32,15 @@
   cursor: pointer;
 }
 
+.editar-vacio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 25px;
+  color: #666; 
+}
+
 @media (max-width: 768px) {
   .carousel-with-buttons {
     flex-direction: column;
@@ -45,7 +53,11 @@
   }
 
   .editar-nav-btn {
-    margin: 5px auto;
-    
+    margin: 5px auto;  
+  }
+
+  .editar-vacio {
+    font-size: 16px; 
+    padding: 10px;
   }
 }

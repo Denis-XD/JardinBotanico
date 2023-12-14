@@ -1,10 +1,9 @@
-/* App.css */
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Esto asegura que la aplicación tenga al menos la altura de la ventana de visualización */
+  min-height: 100vh; 
 }
 
 .main-content {
-  flex: 1; /* Esto asegura que el contenido principal ocupe el espacio disponible, empujando el footer hacia abajo */
+  flex: 1; 
 }

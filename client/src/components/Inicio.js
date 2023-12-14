@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "./Inicio.css"; // Asegúrate de crear este archivo CSS
+import "./Inicio.css";
 
 const Inicio = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    "/image/img-portada1.jpg",
-    "/image/img-portada2.jpg",
-    "/image/img-portada3.jpg",
+    "/image/img-portada1.jpeg",
+    "/image/img-portada2.jpeg",
+    "/image/img-portada3.jpeg",
+    "/image/img-portada4.jpeg",
+    "/image/img-portada5.jpeg",
+    "/image/img-portada6.jpeg"
   ]; 
 
   useEffect(() => {
@@ -92,8 +95,8 @@ const Inicio = () => {
               y Calle Raúl Rivero.
             </p>
             <p>
-              <strong>Horario: </strong>Lunes a viernes: 9:00 am. &#8211; 4:30
-              pm. y Sábados: 10:00 am. &#8211; 4:30 pm.
+              <strong>Horario: </strong>Lunes a viernes: 9:00 am. &#8211; 4:00
+              pm. y Sábados: 10:00 am. &#8211; 12:00 pm.
             </p>
           </section>
         </div>

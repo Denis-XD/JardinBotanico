@@ -10,7 +10,7 @@ const Agregar = () => {
   const validarTipoImagen = (file) => {
     const esImagen = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg';
     if (!esImagen) {
-      message.error('Solo puedes subir archivos de imagen JPG/PNG!');
+      message.error('Solo puedes subir archivos de imagen JPG/JPEG/PNG!');
     }
     return esImagen && Promise.resolve();
   };
@@ -25,7 +25,7 @@ const Agregar = () => {
 
   const onFormSubmit = async (values) => {
     if (!fileList.length || !validarTipoImagen(fileList[0].originFileObj)) {
-      message.error('Por favor, selecciona una imagen válida (JPG/PNG) para subir.');
+      message.error('Por favor, selecciona una imagen válida (JPG/JPEG/PNG) para subir.');
       return;
     }
 
@@ -35,7 +35,7 @@ const Agregar = () => {
     formData.append("beneficios", values.beneficios);
     formData.append("descripcion", values.descripcion);
     formData.append("imagen", fileList[0].originFileObj);
-    console.log(formData);
+    console.log(fileList[0].originFileObj);
     try {
       const response = await fetch('http://localhost:3001/api/plantas/agregar', {
         method: 'POST',

@@ -4,31 +4,31 @@
   margin-bottom: 20px;
   border-radius: 10px;
   overflow: hidden;
-  width: 300px; /* Ancho fijo para la tarjeta */
-  margin: 20px;
+  max-width: 100%; 
+  padding: 15px; 
+  background-color: #CEE6F3;
 }
 
 .planta-imagen-container {
-  width: 100%; /* El contenedor de la imagen ocupa el 100% del ancho de la tarjeta */
-  height: 200px; /* Altura fija para el contenedor de la imagen */
-  overflow: hidden; /* Oculta cualquier exceso de imagen fuera del contenedor */
-  display: flex; /* Permite el uso de flexbox para centrar la imagen */
-  justify-content: center; /* Centra la imagen horizontalmente */
-  align-items: center; /* Centra la imagen verticalmente */
-  margin-top: 20px;
+  width: 100%; 
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .planta-imagen-container img {
-  width: auto; /* Ancho automático para mantener la proporción de la imagen */
-  height: 100%; /* Altura al 100% del contenedor de la imagen */
-  object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortarla */
+  width: 100%; 
+  height: auto; 
+  object-fit: contain; 
 }
+
 .planta-info {
   padding: 15px;
-  text-align: left; /* Alineación del texto a la izquierda */
+  text-align: left;
 }
 
 .planta-info > div {
-  margin-bottom: 10px; /* Espacio entre cada sección de información */
-  word-wrap: break-word; /* Asegura que las palabras se corten si son demasiado largas */
+  margin-bottom: 10px;
+  word-wrap: break-word;
 }

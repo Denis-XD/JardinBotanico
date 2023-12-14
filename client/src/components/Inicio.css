@@ -1,38 +1,39 @@
 .inicio-container {
     text-align: center;
     padding: 20px;
+
   }
   
   .inicio-content {
     display: flex;
-    flex-direction: column; /* Coloca los elementos en una columna */
-    align-items: center; /* Centra los elementos horizontalmente */
+    flex-direction: column; 
+    align-items: center; 
     margin-top: 20px;
   }
   
   .inicio-images img {
     width: 100%;
-    max-width: 600px; /* Ajusta este valor para que las imágenes sean más grandes */
+    max-width: 600px;
     transition: opacity 1s ease;
-    border-radius: 10px; /* Opcional: añade bordes redondeados a las imágenes */
-    margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+    border-radius: 10px; 
+    margin-bottom: 20px; 
   }
   
   .inicio-text {
-    width: auto; /* Ajusta el ancho automáticamente */
-    max-width: 80%; /* No permite que el texto se extienda más allá del 80% del ancho de su contenedor padre */
+    width: auto; 
+    max-width: 80%; 
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     background-color: #f0f0f0;
     text-align: justify;
-    word-wrap: break-word; /* Rompe las palabras para evitar el desbordamiento */
-    hyphens: auto; /* Añade guiones automáticamente si es necesario */
+    word-wrap: break-word; 
+    hyphens: auto; 
   }
   
   @media (max-width: 768px) {
     .inicio-text {
-      max-width: 90%; /* Ajusta para pantallas más pequeñas */
+      max-width: 90%; 
     }
   }
   

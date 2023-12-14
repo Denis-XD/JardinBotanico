@@ -45,10 +45,7 @@ describe('Navbar', () => {
     expect(screen.getByTestId('nav-agregar')).toBeInTheDocument();
   });
 
-  it('debe mostrar el enlace a la página de eliminar para administradores', () => {
-    renderNavbar(true);
-    expect(screen.getByTestId('nav-eliminar')).toBeInTheDocument();
-  });
+ 
 
   it('debe mostrar el enlace a la página de editar para administradores', () => {
     renderNavbar(true);

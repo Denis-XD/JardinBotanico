@@ -28,7 +28,7 @@
   .leaflet-container,
   .map-container {
       width: 340px; 
-      height: 600px; /* Alto ajustado para pantallas más pequeñas */
+      height: 600px;
       margin: 30px auto; 
       overflow: hidden; 
   }

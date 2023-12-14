@@ -1,46 +1,36 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import Inicio from '../components/Inicio/Inicio';
+import Inicio from '../components/Inicio';
+
+jest.useFakeTimers();
 
 describe('Inicio component tests', () => {
-  beforeEach(() => {
-    // Configura los temporizadores falsos antes de cada prueba.
-    jest.useFakeTimers();
-  });
+  const imagenesMock = [
+    '/image/img-portada1.jpeg',
+    '/image/img-portada2.jpeg',
+    '/image/img-portada3.jpeg',
+    '/image/img-portada4.jpeg',
+    '/image/img-portada5.jpeg',
+    '/image/img-portada6.jpeg'
+  ];
 
-  afterEach(() => {
-    // Limpia y restablece los temporizadores después de cada prueba.
-    jest.runOnlyPendingTimers();
-    jest.useRealTimers();
-  });
+  it('debe mostrar la primera imagen correctamente', () => {
+    render(<Inicio />);
 
-  it('debe renderizar el título del jardín botánico', () => {
-    act(() => {
-      // Renderiza el componente dentro de la prueba.
-      render(<Inicio />);
-    });
-    
-    // Asegúrate de que el título esté en el documento.
-    expect(screen.getByText('JARDÍN BOTÁNICO MARTÍN CÁRDENAS')).toBeInTheDocument();
+    const imagen = screen.getByAltText('Jardín Botánico');
+    expect(imagen).toBeInTheDocument();
+    expect(imagen).toHaveAttribute('src', imagenesMock[0]);
   });
 
   it('debe cambiar la imagen después de un intervalo de tiempo', () => {
-    act(() => {
-      render(<Inicio />);
-    });
+    render(<Inicio />);
 
-    // Avanza los temporizadores falsos para simular el paso del tiempo.
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    // Realiza aserciones sobre la nueva imagen mostrada.
-    const displayedImage = screen.getByAltText('Jardín Botánico');
-    expect(displayedImage).toBeInTheDocument();
-    // Asegúrate de actualizar la siguiente línea con el atributo 'src' esperado para la nueva imagen.
-    expect(displayedImage).toHaveAttribute('src', '/image/img-portada2.jpg');
+    const nuevaImagen = screen.getByAltText('Jardín Botánico');
+    expect(nuevaImagen).toHaveAttribute('src', imagenesMock[1]);
   });
 
-  // Puedes agregar más pruebas según sea necesario...
 });

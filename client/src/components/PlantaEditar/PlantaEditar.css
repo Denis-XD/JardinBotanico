@@ -1,5 +1,3 @@
-/* PlantaEditar.css */
-
 .planta-editar-container {
   max-width: 600px;
   margin: auto;
@@ -7,7 +5,7 @@
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Asegurar que todo el contenido interno esté centrado */
+  text-align: center; 
 }
 
 .imagen-container {
@@ -15,14 +13,14 @@
 }
 
 .imagen-container img {
-  width: 100%; /* Asegura que la imagen sea responsiva y ocupe el 100% del contenedor padre */
-  max-height: 300px; /* Establece una altura máxima para la imagen */
-  object-fit: contain; /* Asegura que la imagen se ajuste dentro del área asignada sin ser recortada */
+  width: 100%; 
+  max-height: 300px; 
+  object-fit: contain; 
   border-radius: 8px;
 }
 
 .boton-cambiar-container {
-  margin-top: 1rem; /* Espacio entre la imagen y el botón */
+  margin-top: 1rem; 
 }
 
 .botones-container {
@@ -31,7 +29,6 @@
   margin-top: 1rem;
 }
 
-/* Ajustes responsivos para pantallas más pequeñas */
 @media (max-width: 768px) {
   .planta-editar-container {
     width: 90%;
@@ -39,6 +36,6 @@
   }
 
   .imagen-container img {
-    max-height: 200px; /* Una altura más pequeña para pantallas pequeñas */
+    max-height: 200px; 
   }
 }

@@ -1,9 +1,9 @@
 .invernadero-container {
     display: flex;
-    border: 2px solid red;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
-    overflow: hidden; /* Ocultar contenido fuera del borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
   }
   
   .imagen {
@@ -20,7 +20,8 @@
     font-size: 28px;
     width: 50%;
     padding: 20px;
-    box-sizing: border-box; /* Incluir padding en el ancho */
+    box-sizing: border-box; 
+    white-space: pre;
   }
   
   @media (max-width: 768px) {
