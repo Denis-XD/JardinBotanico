@@ -71,7 +71,7 @@ const Editar = () => {
       {plantas.length > 0 ? (
         <div className="carousel-with-buttons">
   
-          <button onClick={handlePrev} className="editar-nav-btn"><LeftCircleOutlined style={{ fontSize: '40px', backgroundColor:'#35B09E'}} /></button>
+          <button onClick={handlePrev} className="editar-nav-btn"><LeftCircleOutlined style={{ fontSize: '40px', backgroundColor:'#6288E2'}} /></button>
           <div className="carousel-container">
           <PlantaEditar
               key={plantas[currentIndex].id_planta}
@@ -85,7 +85,7 @@ const Editar = () => {
               onSave={handleSave}
             />
           </div>
-          <button onClick={handleNext} className="editar-nav-btn"><RightCircleOutlined style={{ fontSize: '40px', backgroundColor:'#35B09E'}} /></button>
+          <button onClick={handleNext} className="editar-nav-btn"><RightCircleOutlined style={{ fontSize: '40px', backgroundColor:'#6288E2'}} /></button>
         </div>
       ) : (
         <div className="editar-vacio">No hay plantas</div>

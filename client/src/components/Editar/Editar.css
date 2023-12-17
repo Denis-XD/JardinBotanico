@@ -14,7 +14,7 @@
   width: auto;
   max-width: 600px;
   margin: 0 10px;
-  background-color: #CEE6F3;
+  background-color: #FFD799;
 }
 
 .editar-nav-btn {
@@ -25,8 +25,8 @@
   min-height: 20px;
   display: flex;
   justify-content: center;
-  background-color: #35B09E;
-  border: 2px solid #35B09E;
+  background-color: #6288E2;
+  border: 2px solid #6288E2;
   align-items: center;
   cursor: pointer;
 }
