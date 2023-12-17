@@ -19,9 +19,8 @@ router.post('/login', async (req, res) => {
   try {
     const user = await knex('Usuario').where({ usuario: username }).first();
     if (user && password === user.contrasena) { 
-      // Crear un token de autenticación
       const token = jwt.sign({ id: user.id_usuario }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      res.json({ token });
+      res.json({ token, username: user.nombre });
     } else {
       res.status(401).json({ error: 'Credenciales incorrectas' });
     }

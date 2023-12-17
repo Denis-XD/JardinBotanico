@@ -6,12 +6,19 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('Navbar', () => {
   const mockOnLogout = jest.fn();
+  beforeEach(() => {
+    localStorage.setItem("userName", "TestUser");
+  });
+
+  afterEach(() => {
+    localStorage.clear();
+  });
 
   const renderNavbar = (isAdmin = false) => render(
     <Router>
       <Navbar isAdmin={isAdmin} onLogout={mockOnLogout} />
     </Router>
-  );
+  )
 
   // Pruebas para usuarios no administradores
   it('debe mostrar el enlace a la página de inicio para usuarios no administradores', () => {
@@ -45,8 +52,6 @@ describe('Navbar', () => {
     expect(screen.getByTestId('nav-agregar')).toBeInTheDocument();
   });
 
- 
-
   it('debe mostrar el enlace a la página de editar para administradores', () => {
     renderNavbar(true);
     expect(screen.getByTestId('nav-editar')).toBeInTheDocument();
@@ -55,5 +60,10 @@ describe('Navbar', () => {
   it('debe mostrar el botón de salir para administradores', () => {
     renderNavbar(true);
     expect(screen.getByTestId('nav-logout')).toBeInTheDocument();
+  });
+
+  it('debe mostrar el nombre del administrador', () => {
+    renderNavbar(true);
+    expect(screen.getByTestId('nav-user')).toBeInTheDocument();
   });
 });

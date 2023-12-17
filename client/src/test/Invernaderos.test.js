@@ -16,15 +16,43 @@ jest.mock("../components/Invernadero/Invernadero", () => {
 });
 
 describe("Invernaderos component tests", () => {
-  test("debe renderizar los invernaderos con sus respectivos textos e imágenes", () => {
+  test("debe renderizar el invernadero 1 con sus respectivo texto e imágenes", () => {
     render(<Invernaderos />);
 
-    for (let index = 0; index < 4; index++) {
-      const invernaderoElement = screen.getByTestId(`invernadero-${index}`);
-      expect(invernaderoElement).toBeInTheDocument();
+    const invernaderoElement = screen.getByTestId(`invernadero-${0}`);
+    expect(invernaderoElement).toBeInTheDocument();
 
-      const imagenes = within(invernaderoElement).getAllByRole("img");
-      expect(imagenes.length).toBeGreaterThanOrEqual(1); 
-    }
+    const imagenes = within(invernaderoElement).getAllByRole("img");
+    expect(imagenes.length).toBeGreaterThanOrEqual(1); 
+  });
+
+  test("debe renderizar el invernadero 2 con sus respectivo texto e imágenes", () => {
+    render(<Invernaderos />);
+
+    const invernaderoElement = screen.getByTestId(`invernadero-${1}`);
+    expect(invernaderoElement).toBeInTheDocument();
+
+    const imagenes = within(invernaderoElement).getAllByRole("img");
+    expect(imagenes.length).toBeGreaterThanOrEqual(1); 
+  });
+
+  test("debe renderizar el invernadero 3 con sus respectivo texto e imágenes", () => {
+    render(<Invernaderos />);
+
+    const invernaderoElement = screen.getByTestId(`invernadero-${2}`);
+    expect(invernaderoElement).toBeInTheDocument();
+
+    const imagenes = within(invernaderoElement).getAllByRole("img");
+    expect(imagenes.length).toBeGreaterThanOrEqual(1); 
+  });
+
+  test("debe renderizar el invernadero 4 con sus respectivo texto e imágenes", () => {
+    render(<Invernaderos />);
+
+    const invernaderoElement = screen.getByTestId(`invernadero-${3}`);
+    expect(invernaderoElement).toBeInTheDocument();
+
+    const imagenes = within(invernaderoElement).getAllByRole("img");
+    expect(imagenes.length).toBeGreaterThanOrEqual(1); 
   });
 });

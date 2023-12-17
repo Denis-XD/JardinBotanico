@@ -19,16 +19,15 @@
 
 .editar-nav-btn {
   border-radius: 50%;
-  padding: 10px;
-  margin: 10px;
-  min-width: 40px;
-  height: 40px;
+  padding: 7px;
+  margin: 7px;
+  min-width: 20px;
+  min-height: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #35B09E;
   border: 2px solid #35B09E;
-  color: white; 
+  align-items: center;
   cursor: pointer;
 }
 

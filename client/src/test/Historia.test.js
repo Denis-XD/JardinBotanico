@@ -22,12 +22,22 @@ describe('Pruebas para el componente Historia', () => {
     expect(screen.getByAltText(`Slide 2`)).toBeInTheDocument();
   });
 
-  test('debe renderizar el contenido de texto correctamente', () => {
+  test('debe renderizar el contenido 1 de texto correctamente', () => {
     render(<Historia />);
   
     expect(screen.getByText('Introducción')).toBeInTheDocument();
+   
+  });
+
+  test('debe renderizar el contenido 2 de texto correctamente', () => {
+    render(<Historia />);
 
     expect(screen.getByText('Antecedentes')).toBeInTheDocument();
+   
+  });
+
+  test('debe renderizar el contenido 3 de texto correctamente', () => {
+    render(<Historia />);
 
     expect(screen.getByText('Objetivos')).toBeInTheDocument();
    

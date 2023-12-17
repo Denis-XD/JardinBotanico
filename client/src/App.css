@@ -9,7 +9,7 @@ html, body {
     min-height: 100%;
   }
   .main-content{
-    background-color: #CCEEBC;
+    background-image: linear-gradient(30deg, crimson, sienna, royalblue, indianred, purple);
   }
   .content {
     flex: 1;

@@ -8,6 +8,27 @@ beforeEach(() => {
 });
 
 describe('Tests Galeria', () => {
+  test('Render titulo', async () => {
+    const fakeData = [
+      { id_planta: 1, nombre_planta: 'Planta 1', nombre_cientifico: 'Alo', beneficios: '', descripcion: '', ruta_imagen: 'upload/' },
+      { id_planta: 2, nombre_planta: 'Planta 2', nombre_cientifico: 'Alo2', beneficios: '', descripcion: '', ruta_imagen: 'upload/' },
+    ];
+    
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve(fakeData),
+    });
+
+    render(<Galeria />);
+
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledWith('http://localhost:3001/api/plantas/obtener');
+    });
+
+    const textoGaleriaVacia = screen.getByText(/Galería de Plantas/i);
+    expect(textoGaleriaVacia).toBeInTheDocument();
+
+  });
   test('Render 2 plantas', async () => {
     const fakeData = [
       { id_planta: 1, nombre_planta: 'Planta 1', nombre_cientifico: 'Alo', beneficios: '', descripcion: '', ruta_imagen: 'upload/' },
@@ -79,4 +100,21 @@ describe('Tests Galeria', () => {
     const plantas = screen.queryAllByTestId('galeria-container');
     expect(plantas).toHaveLength(0); 
   });
+
+  test('Render 0 plantas y texto', async () => {
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve([]), 
+    });
+  
+    render(<Galeria />);
+  
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledWith('http://localhost:3001/api/plantas/obtener');
+    });
+  
+    const textoGaleriaVacia = await screen.findByTestId('galeria-vacia');
+    expect(textoGaleriaVacia).toBeInTheDocument();
+  });
+
 });

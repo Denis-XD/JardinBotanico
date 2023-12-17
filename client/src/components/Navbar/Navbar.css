@@ -1,6 +1,6 @@
 .custom-navbar {
-    background-color: #88AB8E;
-    border-bottom: 2px solid #666;
+    background-color: #03ceb1;
+    border-bottom: 2px solid #000000;
     font-weight: bold;
   }
   
@@ -10,9 +10,7 @@
   }
   
   .custom-navbar .ant-menu-item a:hover {
-    color: #A7B09E;
- 
-    
+    color: #A7B09E; 
   }
   
   .custom-navbar .ant-menu-item-active a,
@@ -32,4 +30,19 @@
   .custom-navbar .ant-menu-item button:hover {
     color: #ddd;
   }
+
+  .menu-item-right {
+    margin-left: auto !important;
+  }
   
+  .icono-texto {
+    display: inline-flex;
+    align-items: center;
+    font-size: 17px;
+  }
+
+  .icono{
+    margin-right: 5px !important;
+    font-size: 19px !important;
+  }
+

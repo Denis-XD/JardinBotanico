@@ -19,6 +19,7 @@ const Login = ({ onLogin }) => {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('userToken', data.token); 
+        localStorage.setItem('userName', data.username); 
         onLogin(); 
         navigate('/Agregar/agregar'); 
       } else {

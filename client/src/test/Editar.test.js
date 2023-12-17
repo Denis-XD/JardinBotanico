@@ -31,16 +31,34 @@ describe('Editar component tests', () => {
     await waitFor(() => {
       expect(screen.getByText('Planta 1')).toBeInTheDocument();
     });
-
-    fireEvent.click(screen.getByText(/siguiente/i));
+  
+    const siguienteBtn = screen.getByRole('button', { name: /right-circle/i });
+    fireEvent.click(siguienteBtn);
+  
     await waitFor(() => {
       expect(screen.getByText('Planta 2')).toBeInTheDocument();
     });
-
-    fireEvent.click(screen.getByText(/anterior/i));
+  
+    const anteriorBtn = screen.getByRole('button', { name: /left-circle/i });
+    fireEvent.click(anteriorBtn);
+  
     await waitFor(() => {
       expect(screen.getByText('Planta 1')).toBeInTheDocument();
     });
   });
 
+  it('debe mostrar "No hay plantas" cuando no hay plantas para editar', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve([]),
+      })
+    );
+
+    render(<Editar />);
+
+    await waitFor(() => {
+      expect(screen.getByText('No hay plantas')).toBeInTheDocument();
+    });
+  });
 });

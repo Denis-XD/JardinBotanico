@@ -22,6 +22,7 @@ function App() {
 
   const cerrarSesion = () => {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('userName');
     setUsuarioAutenticado(false);
   };
 

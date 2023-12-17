@@ -46,7 +46,7 @@ const Galeria = () => {
           ))}
         </div>
       ) : (
-        <div className="galeria-vacia">Galería vacía</div> 
+        <div data-testid="galeria-vacia" className="galeria-vacia">Galería vacía</div> 
       )}
     </div>
   );

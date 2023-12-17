@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { message } from "antd";
+import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import PlantaEditar from "../PlantaEditar/PlantaEditar";
 import "./Editar.css";
 
@@ -69,7 +70,8 @@ const Editar = () => {
     <div className="editar-container">
       {plantas.length > 0 ? (
         <div className="carousel-with-buttons">
-          <button onClick={handlePrev} className="editar-nav-btn">Anterior</button>
+  
+          <button onClick={handlePrev} className="editar-nav-btn"><LeftCircleOutlined style={{ fontSize: '40px', backgroundColor:'#35B09E'}} /></button>
           <div className="carousel-container">
           <PlantaEditar
               key={plantas[currentIndex].id_planta}
@@ -83,7 +85,7 @@ const Editar = () => {
               onSave={handleSave}
             />
           </div>
-          <button onClick={handleNext} className="editar-nav-btn">Siguiente</button>
+          <button onClick={handleNext} className="editar-nav-btn"><RightCircleOutlined style={{ fontSize: '40px', backgroundColor:'#35B09E'}} /></button>
         </div>
       ) : (
         <div className="editar-vacio">No hay plantas</div>
